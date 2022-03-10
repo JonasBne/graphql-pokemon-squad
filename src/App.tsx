@@ -1,10 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./theme/theme";
 
 function App() {
   return (
-    <div>Hello World
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>test</div>
+    </ThemeProvider>
   );
 }
 
