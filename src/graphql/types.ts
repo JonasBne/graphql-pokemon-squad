@@ -119,6 +119,7 @@ export type PokemonsQuery = {
   __typename?: "Query";
   pokemons?: Array<{
     __typename?: "Pokemon";
+    id: string;
     name?: string | null;
     types?: Array<string | null> | null;
     attacks?: {
@@ -141,7 +142,8 @@ export type PokemonsQuery = {
 
 export const PokemonsDocument = gql`
   query pokemons {
-    pokemons(first: 100) {
+    pokemons(first: 15) {
+      id
       name
       types
       attacks {
