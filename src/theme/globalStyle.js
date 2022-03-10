@@ -1,12 +1,9 @@
+import { createGlobalStyle } from "styled-components";
 
-import { createGlobalStyle } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle({
+export const GlobalStyle = createGlobalStyle({
   body: {
     margin: 0,
     padding: 0,
-    fontFamily: 'Montserrat, sans-serif',
+    fontFamily: "Montserrat, sans-serif",
   },
 });
-
-export default GlobalStyle;
