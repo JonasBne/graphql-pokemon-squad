@@ -1,19 +1,24 @@
-export function sortBy(data: any[], sortOrder?: "Ascending" | "Descending") {
-  if (!data) return data;
+export const sortBy = (
+  data: any[],
+  sortExpression: string | null | undefined
+) => {
+  if (!data) {
+    return data;
+  }
 
   const sortedData = [...data];
   sortedData.sort((a: any, b: any) => {
-    if (sortOrder === "Ascending") {
-      if (a[sortOrder.substring(1)] < b[sortOrder.substring(1)]) {
+    if (sortExpression?.includes("+")) {
+      if (a[sortExpression.substring(1)] < b[sortExpression.substring(1)]) {
         return -1;
       }
     }
-    if (sortOrder === "Descending") {
-      if (b[sortOrder.substring(1)] < a[sortOrder.substring(1)]) {
+    if (sortExpression?.includes("-")) {
+      if (b[sortExpression.substring(1)] < a[sortExpression.substring(1)]) {
         return -1;
       }
     }
     return 0;
   });
   return sortedData;
-}
+};
