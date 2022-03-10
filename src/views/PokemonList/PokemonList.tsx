@@ -1,33 +1,12 @@
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { PokemonsQuery } from "../../graphql/types";
 import { Header } from "../../components/Header";
 import { Box } from "../../components/Box";
 import { Input } from "../../components/Input";
 import { PokemonListItem } from "./PokemonListItem";
 import { sortBy } from "../../utils/sortBy";
-
-const GET_POKEMONS = gql`
-  query pokemons {
-    pokemons(first: 15) {
-      id
-      name
-      types
-      attacks {
-        fast {
-          name
-          type
-          damage
-        }
-        special {
-          name
-          type
-          damage
-        }
-      }
-    }
-  }
-`;
+import { GET_POKEMONS } from "../../graphql/queries";
 
 export function PokemonList() {
   const { loading, error, data } = useQuery<PokemonsQuery>(GET_POKEMONS);
