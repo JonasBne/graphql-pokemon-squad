@@ -1,6 +1,6 @@
 import { sortBy } from "./sortBy";
 
-describe("sort by function sorts correctly", () => {
+describe("sortBy function", () => {
   let data: any[];
 
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe("sort by function sorts correctly", () => {
     ];
   });
 
-  test("sorts in ascending order", () => {
+  test("Sort in ascending order", () => {
     const result = sortBy(data, "+title");
     expect(result[0].title).toBe("A");
   });
@@ -27,7 +27,7 @@ describe("sort by function sorts correctly", () => {
     expect(result[0].title).toBe("C");
   });
 
-  test("no sorting if there is no expression", () => {
+  test("Doesn't sort", () => {
     const result = sortBy(data, "");
     expect(result[0].title).toBe("B");
   });
